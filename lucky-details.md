@@ -2,7 +2,6 @@ layout: page
 title: "Lucky-Break"
 permalink: /game/lucky-break.html/
 
-<!DOCTYPE html>
 <!--
 Created using JS Bin
 http://jsbin.com
@@ -11,7 +10,7 @@ Copyright (c) 2024 by Merlincanthrope (http://jsbin.com/wipojar/4/edit)
 
 Released under the MIT license: http://jsbin.mit-license.org
 -->
-<meta name="robots" content="noindex">
+<meta name="lucky-break" content="Bootleg Idle Breakout">
 <html>
 
 <head>
