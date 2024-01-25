@@ -42,96 +42,6 @@ Released under the MIT license: http://jsbin.mit-license.org
       </div>
   </div>
 
-<style id="jsbin-css">
-body {
-  background: black;
-}
-
-#innerBackground {
-  
-}
-
-#mainTitle {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-}
-
-canvas {
-  border: 1px solid lightgray;
-  margin-top: 4px;
-  margin-left: 4px;
-  margin-right: 4px;
-  display: block;
-}
-
-#outerBorder {
-  border: 2px solid black;
-  width: 412px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
-  margin-left: auto;
-  margin-right: auto;
-  background: white;
-}
-
-#ctrlarea {
-  border: 1px solid gray;
-  max-width: 410px;
-}
-
-#upgradesTitle {
-  text-align: center;
-  font-family: "Lucida Console", "Courier New", monospace;
-}
-
-#columnParent {
-  text-align: center;
-  background-color: white;
-}
-
-#moreOrbsColumn {
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  background-color: white;
-}
-
-#moreDamageColumn {
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  border-left: none;
-  border-right: none;
-  background-color: white;
-}
-
-#moreSpeedColumn {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  background-color: white;
-}
-
-.upgrade {
-  width: 75px;
-}
-
-.upgradeNames {
-  font-size: 15px;
-  font-family: "Lucida Console", "Courier New", monospace;
-}
-
-.column {
-  float: left;
-  width: 32.68%;
-  border: 1px solid gray;
-  padding-bottom: 6px;
-  border-top: none;
-}
-</style>
-
 <script id="jsbin-javascript">
 // Canvas Variables
 var WIDTH = 400;
@@ -998,6 +908,97 @@ update = function() {
 
 setInterval(update, 10);
 </script>
+
+<style id="jsbin-css">
+body {
+  background: black;
+}
+
+#innerBackground {
+  
+}
+
+#mainTitle {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+canvas {
+  border: 1px solid lightgray;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  display: block;
+}
+
+#outerBorder {
+  border: 2px solid black;
+  width: 412px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+}
+
+#ctrlarea {
+  border: 1px solid gray;
+  max-width: 410px;
+}
+
+#upgradesTitle {
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#columnParent {
+  text-align: center;
+  background-color: white;
+}
+
+#moreOrbsColumn {
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  background-color: white;
+}
+
+#moreDamageColumn {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-left: none;
+  border-right: none;
+  background-color: white;
+}
+
+#moreSpeedColumn {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  background-color: white;
+}
+
+.upgrade {
+  width: 75px;
+}
+
+.upgradeNames {
+  font-size: 15px;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.column {
+  float: left;
+  width: 32.68%;
+  border: 1px solid gray;
+  padding-bottom: 6px;
+  border-top: none;
+}
+</style>
+
 </body>
 
 </html>
