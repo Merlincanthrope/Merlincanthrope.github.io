@@ -18,30 +18,6 @@ Released under the MIT license: http://jsbin.mit-license.org
   <h2 id="mainTitle">Lucky Break</h2>
 </head>
 
-<body onload="getRandomLevel()">
-  
-  <div id="innerBackground">
-    <div id="outerBorder">
-    <div id="ctrlarea">
-      <canvas id="canvas" width="400" height="500"></canvas>
-      <div id="columnParent">
-        <p id="upgradesTitle" class="header">Upgrades</p>
-        <div id="moreOrbsColumn" class="column">
-          <p class="upgradeNames">+1 Orb</p>
-          <input id="moreOrbs" type="button" class="upgrade" onclick="purchaseMoreOrbs()">
-        </div>
-        <div id="moreDamageColumn" class="column">
-          <p class="upgradeNames">+1 Damage</p>
-          <input id="moreDamage" type="button" class="upgrade" onclick="purchaseMoreDamage()">
-        </div>
-        <div id="moreSpeedColumn" class="column">
-          <p class="upgradeNames">+1 Speed</p>
-          <input id="moreSpeed" type="button" class="upgrade" onclick="purchaseMoreSpeed()">
-        </div>
-      </div>
-      </div>
-  </div>
-
 <script id="jsbin-javascript">
 // Canvas Variables
 var WIDTH = 400;
@@ -998,6 +974,30 @@ canvas {
   border-top: none;
 }
 </style>
+
+<body onload="getRandomLevel()">
+  
+  <div id="innerBackground">
+    <div id="outerBorder">
+    <div id="ctrlarea">
+      <canvas id="canvas" width="400" height="500"></canvas>
+      <div id="columnParent">
+        <p id="upgradesTitle" class="header">Upgrades</p>
+        <div id="moreOrbsColumn" class="column">
+          <p class="upgradeNames">+1 Orb</p>
+          <input id="moreOrbs" type="button" class="upgrade" onclick="purchaseMoreOrbs()">
+        </div>
+        <div id="moreDamageColumn" class="column">
+          <p class="upgradeNames">+1 Damage</p>
+          <input id="moreDamage" type="button" class="upgrade" onclick="purchaseMoreDamage()">
+        </div>
+        <div id="moreSpeedColumn" class="column">
+          <p class="upgradeNames">+1 Speed</p>
+          <input id="moreSpeed" type="button" class="upgrade" onclick="purchaseMoreSpeed()">
+        </div>
+      </div>
+      </div>
+  </div>
 
 </body>
 
