@@ -583,13 +583,13 @@ function getMoney() {
 function getPrice(upgrade) {
   if (upgrade == "moreOrbs") {
     originalPrice = upgradePrices[0];
-    price = Math.pow(originalPrice, numTimesUpgraded[0]) * 50;
+    price = 50 * numTimesUpgraded[0] + (numTimesUpgraded[0] * 5) * originalPrice;
   } else if (upgrade == "moreDamage") {
     originalPrice = upgradePrices[1];
-    price = Math.pow(originalPrice, numTimesUpgraded[1]) * 50;
+    price = 50 * numTimesUpgraded[1] + (numTimesUpgraded[1] * 5) * originalPrice;
   } else if (upgrade == "moreSpeed") {
     originalPrice = upgradePrices[2];
-    price = Math.pow(originalPrice, numTimesUpgraded[2]) * 50;
+    price = 50 * numTimesUpgraded[2] + (numTimesUpgraded[2] * 5) * originalPrice;
   }
   return price;
 }
