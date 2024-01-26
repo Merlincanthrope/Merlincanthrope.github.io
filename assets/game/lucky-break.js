@@ -639,7 +639,6 @@ function levelUp(rnglevel) {
     drawBrick(rnglevel);
     testBrickCollision(orb);
     displayBrickHealth();
-    getMoney()
     level++;
     bricksLeft = brickColumns * brickRows;
     orb.x = orbStartingX;
