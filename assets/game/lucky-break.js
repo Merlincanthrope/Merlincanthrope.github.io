@@ -344,27 +344,38 @@ function testBrickCollision(ent, level) {
         var barray = bricks[c][r];
         if (barray.status >= 1) {
           if (ent.x + ent.radius > barray.x && ent.x - ent.radius < (barray.x + brick.width) && ent.y + ent.radius > barray.y && ent.y - ent.radius < (barray.y + brick.height)) {
-            if (barray.status <= 1) {
-              bricksBroken++;
-              bricksLeft--;
-              money += (15 + Math.floor(Math.random() * 3));
-            }
+          
             // Collision with brick's left side (right side of orb)
             if (ent.x - ent.radius < barray.x && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x - ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             // Collision with brick's right side (left side of orb)
             if (ent.x + ent.radius > barray.x + brick.width && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x + brick.width + ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             // Collision with top of brick (bottom of orb)
             if (ent.y + ent.radius > barray.y && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y - ent.radius < barray.y) {
               ent.y = barray.y - ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             
@@ -372,6 +383,11 @@ function testBrickCollision(ent, level) {
             if (ent.y - ent.radius < barray.y + brick.height && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y + ent.radius> barray.y + brick.height) {
               ent.y = barray.y + brick.height + ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
           }
@@ -384,27 +400,38 @@ function testBrickCollision(ent, level) {
         var barray = bricks[c][r];
         if (barray.status >= 1) {
           if (ent.x + ent.radius > barray.x && ent.x - ent.radius < (barray.x + brick.width) && ent.y + ent.radius > barray.y && ent.y - ent.radius < (barray.y + brick.height)) {
-            if (barray.status <= 1) {
-              bricksBroken++;
-              bricksLeft--;
-              money += (15 + Math.floor(Math.random() * 3));
-            }
+
             // Collision with brick's left side (right side of orb)
             if (ent.x - ent.radius < barray.x && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x - ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             // Collision with brick's right side (left side of orb)
             if (ent.x + ent.radius > barray.x + brick.width && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x + brick.width + ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             // Collision with top of brick (bottom of orb)
             if (ent.y + ent.radius > barray.y && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y - ent.radius < barray.y) {
               ent.y = barray.y - ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             
@@ -412,6 +439,11 @@ function testBrickCollision(ent, level) {
             if (ent.y - ent.radius < barray.y + brick.height && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y + ent.radius> barray.y + brick.height) {
               ent.y = barray.y + brick.height + ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
           }
@@ -424,16 +456,16 @@ function testBrickCollision(ent, level) {
         var barray = bricks[c][r];
         if (barray.status >= 1) {
           if (ent.x + ent.radius > barray.x && ent.x - ent.radius < (barray.x + brick.width) && ent.y + ent.radius > barray.y && ent.y - ent.radius < (barray.y + brick.height)) {
-            if (barray.status <= 1) {
-              bricksBroken++;
-              bricksLeft--;
-              money += (15 + Math.floor(Math.random() * 3));
-            }
             
             // Collision with brick's left side (right side of orb)
             if (ent.x - ent.radius < barray.x && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x - ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             
@@ -441,6 +473,11 @@ function testBrickCollision(ent, level) {
             if (ent.x + ent.radius > barray.x + brick.width && ent.y > barray.y && ent.y < barray.y + brick.height) {
               ent.x = barray.x + brick.width + ent.radius;
               ent.spdX = -ent.spdX;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             
@@ -448,6 +485,11 @@ function testBrickCollision(ent, level) {
             if (ent.y + ent.radius > barray.y && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y - ent.radius < barray.y) {
               ent.y = barray.y - ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
             }
             
@@ -455,6 +497,11 @@ function testBrickCollision(ent, level) {
             if (ent.y - ent.radius < barray.y + brick.height && ent.x > barray.x && ent.x < barray.x + brick.width && ent.y + ent.radius> barray.y + brick.height) {
               ent.y = barray.y + brick.height + ent.radius;
               ent.spdY = -ent.spdY;
+              if (barray.status <= ent.damage) {
+                bricksBroken++;
+                bricksLeft--;
+                money += (15 + Math.floor(Math.random() * 3));
+              }
               barray.status -= ent.damage;
               
             }
