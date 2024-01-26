@@ -28,6 +28,13 @@ var numNewOrbs = 0;
 var bricksBroken = 0;
 var bricksLeft = brickColumns * brickRows;
 
+// Save Data Variables
+var saveNecess = [
+  ["orb", orb],
+  ["numLevelsBeaten", numLevelsBeaten],
+  ["money", money],
+];
+
 // Arrays
 var orbList = [];
 var brickList = [];
@@ -703,7 +710,7 @@ function drawLevelScore() {
   ctx.save();
   ctx.font = "16px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("Level " + (numLevelsBeaten + 1), WIDTH - 20, HEIGHT - 4);
+  ctx.fillText("Level " + (numLevelsBeaten + 1), WIDTH - 120, HEIGHT - 20);
   ctx.restore();
 }
 
@@ -838,11 +845,6 @@ function preventHealthNegatives() {
 }
 
 // ----SAVE DATA FUNCTIONS
-var saveNecess = [
-  ["orb", orb],
-  ["numLevelsBeaten", numLevelsBeaten],
-  ["money", money],
-];
 
 function save() {
   for (var necesKey in saveNecess) {
