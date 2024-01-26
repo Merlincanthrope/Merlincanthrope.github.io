@@ -851,7 +851,7 @@ function save() {
 
 function load() {
   for (var loadkey in saveNecess) {
-    return JSON.parse(localStorage.getItem(saveNecess[loadkey][0]));
+    saveNecess[loadkey][1] = JSON.parse(localStorage.getItem(saveNecess[loadkey][0]));
   }
 }
 
