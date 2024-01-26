@@ -7,10 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title id="mainTitle">Lucky Break</title>
   <link rel="stylesheet" href="lucky-break.css">
-  <script src="lucky-break.js"></script>
+  <script type="text/javascript" src="lucky-break.js"></script>
+  <script>window.onload = setInterval(update, 10)</script>
 </head>
 
-<body onload="getRandomLevel(), setInterval(update, 10)">
+<body onload="getRandomLevel()">
   <div id="innerBackground">
     <div id="outerBorder">
     <div id="ctrlarea">
