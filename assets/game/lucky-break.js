@@ -19,7 +19,10 @@ var brickHealth = 3;
 
 
 // Money Variables
-var money = 0;
+var money;
+if (!money) {
+money = 0;
+}
 var price, originalPrice;
 
 // Counting Variables
@@ -847,6 +850,15 @@ var saveNecess = [
   ["money", money],
 ];
 
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
 function save() {
   for (var necesKey in saveNecess) {
       localStorage.setItem(saveNecess[necesKey][0], JSON.stringify(saveNecess[necesKey][1]));
@@ -854,6 +866,15 @@ function save() {
   for (var savekey in orbList) {
     localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
   }
+  ctx.save();
+  ctx.font = "18px Arial";
+  ctx.fillStyle = "white";
+  ctx.fillText("Saved!", 10, HEIGHT - 28);
+  ctx.restore();
+
+  sleep(2000);
+  
+  ctx.clearRect(0, HEIGHT - 30, 150, HEIGHT);
 }
 
 function load() {
