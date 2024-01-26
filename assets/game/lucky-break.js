@@ -839,17 +839,17 @@ function preventHealthNegatives() {
 
 // ----SAVE DATA FUNCTIONS
 var saveNecess = [
-  orb,
-  numLevelsBeaten,
-  money,
+  ["orb", orb],
+  ["numLevelsBeaten", numLevelsBeaten],
+  ["money", money],
 ];
 
 function save() {
-  localStorage.setItem(SAVE_KEY, JSON.stringify(orb));
-  localStorage.setItem(SAVE_KEY, JSON.stringify(numLevelsBeaten));
-  localStorage.setItem(SAVE_KEY, JSON.stringify(money));
+  for (var necesKey in saveNecess) {
+      localStorage.setItem(saveNecess[necesKey][0], JSON.stringify(saveNecess[necesKey][1]));
+  }
   for (var savekey in orbList) {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(orbList[savekey]));
+    localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
   }
 }
 
