@@ -847,14 +847,6 @@ function save() {
   for (var savekey in orbList) {
     localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
   }
-
-function save() {
-  for (var necesKey in saveNecess) {
-      localStorage.setItem(saveNecess[necesKey][0], JSON.stringify(saveNecess[necesKey][1]));
-  }
-  for (var savekey in orbList) {
-    localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
-  }
 }
 
 function load() {
