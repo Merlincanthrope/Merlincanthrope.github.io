@@ -53,12 +53,13 @@ var levelFormats = [
   // "diamond"
 ];
 var currentLevel = levelFormats[randomLevel];
+var numLevelsBeaten = 1;
 var full = levelFormats[0];
 var upperhalf = levelFormats[1];
 var doublecolumn = levelFormats[2];
 var fourcorners = levelFormats[3];
 var diamond = levelFormats[4];
-getRandomLevel = function() {
+function getRandomLevel() {
   randomLevel = Math.floor(Math.random() * levelFormats.length);
   currentLevel = levelFormats[randomLevel];
 }
@@ -90,7 +91,7 @@ orb = {
 };
 
 // ----RANDOM DIRECTIONAL VALUES---------
-getRandomX = function() {
+function getRandomX() {
   var rngSpd = Math.floor(Math.random() * 8) + 1;
   var negOrPosRNG = Math.floor(Math.random() * 2);
   if (negOrPosRNG === 0) {
@@ -100,7 +101,7 @@ getRandomX = function() {
 }
 var randomSpdX = getRandomX();
 
-chooseSpdY = function() {
+function chooseSpdY() {
   var rngSpd = getRandomX();
   var randomSpdY;
   var negOrPosRNG = Math.floor(Math.random() * 2);
@@ -157,7 +158,7 @@ var newOrbs = {
 };
 
 // ----DRAW OBJECTS----------------------
-drawOrb = function(ent) {
+function drawOrb(ent) {
   ctx.save();
   ctx.fillStyle = ent.color;
   ctx.strokeStyle = ent.stroke;
@@ -170,7 +171,7 @@ drawOrb = function(ent) {
 }
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
-drawBrick = function(level) {
+function drawBrick(level) {
   if (level === full) {
     for (c = 0; c < brickColumns; c++) {
       for (r = 0; r < brickRows; r++) {
@@ -302,7 +303,7 @@ drawBrick = function(level) {
 }
 
 // ----NEW POS FUNCTION------------------
-newPos = function(ent) {
+function newPos(ent) {
   // Right Wall Collision
   if (ent.x > WIDTH - ent.radius) {
     ent.x = WIDTH - ent.radius;
@@ -330,7 +331,7 @@ newPos = function(ent) {
 // ----COLLISION FUNCTION----------------
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
-testBrickCollision = function(ent, level) {
+function testBrickCollision(ent, level) {
   if (level == full) {
     for (c = 0; c < brickColumns; c++) {
       for (r = 0; r < brickRows; r++) {
@@ -461,7 +462,7 @@ testBrickCollision = function(ent, level) {
 // ----BRICK HEALTH---------------------
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
-displayBrickHealth = function(level) {
+function displayBrickHealth(level) {
   if (level == full) {
     for (c = 0; c < brickColumns; c++) {
       for (r = 0; r < brickRows; r++) {
@@ -513,7 +514,7 @@ displayBrickHealth = function(level) {
 }
 
 // ----ECONOMIC FUNCTIONS--------------
-getMoney = function() {
+function getMoney() {
   ctx.save();
   ctx.font = "18px Arial";
   ctx.fillStyle = "black";
@@ -521,7 +522,7 @@ getMoney = function() {
   ctx.restore();
 }
 
-getPrice = function(upgrade) {
+function getPrice(upgrade) {
   if (upgrade == "moreOrbs") {
     originalPrice = upgradePrices[0];
     price = Math.pow(originalPrice, numTimesUpgraded[0]) * 50;
@@ -535,7 +536,7 @@ getPrice = function(upgrade) {
   return price;
 }
 
-purchaseMoreOrbs = function() {
+function purchaseMoreOrbs() {
   getPrice("moreOrbs");
   if (money >= price) {
     money -= price;
@@ -564,7 +565,7 @@ purchaseMoreOrbs = function() {
   }
 }
 
-purchaseMoreDamage = function() {
+function purchaseMoreDamage() {
   getPrice("moreDamage");
   if (money >= price) {
     money -= price;
@@ -579,7 +580,7 @@ purchaseMoreDamage = function() {
   }
 }
 
-purchaseMoreSpeed = function() {
+function purchaseMoreSpeed() {
   getPrice("moreSpeed");
   if (money >= price) {
     money -= price;
@@ -616,8 +617,9 @@ purchaseMoreSpeed = function() {
 // ----LEVEL FUNCTIONS---------------
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
-levelUp = function(rnglevel) {
+function levelUp(rnglevel) {
   brickHealth++;
+  numLevelsBeaten++;
 
   if (rnglevel == full) {
     //Draw all bricks (FULL LEVEL)
@@ -697,9 +699,16 @@ levelUp = function(rnglevel) {
   }
 }
 
+function drawLevelScore() {
+  ctx.save();
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Level " + (numLevelsBeaten + 1), WIDTH - 20, HEIGHT - 4);
+  ctx.restore();
+}
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
-getTotalBrickHealth = function(level) {
+function getTotalBrickHealth(level) {
   var totalHealth = 0;
   if (level == full) {
     for (c = 0; c < brickColumns; c++) {
@@ -730,7 +739,7 @@ getTotalBrickHealth = function(level) {
 
 // ----CONSOLE COMMANDS---------------
 
-genocide = function() {
+function genocide() {
   if (currentLevel == full) {
     for (c = 0; c < brickColumns; c++) {
       for (r = 0; r < brickRows; r++) {
@@ -800,7 +809,7 @@ var cmd = {
 
 // ----FUNCTION FOR PREVENTING NEGATIVE HEALTH VALUES-----
 
-preventHealthNegatives = function() {
+function preventHealthNegatives() {
   if (currentLevel == full) {
     for (c = 0; c < brickColumns; c++) {
       for (r = 0; r < brickRows; r++) {
@@ -826,6 +835,26 @@ preventHealthNegatives = function() {
       }
     }
   }
+}
+
+// ----SAVE DATA FUNCTIONS
+var saveNecess = [
+  ["orb", orb],
+  ["numLevelsBeaten", numLevelsBeaten],
+  ["money", money],
+];
+
+function save() {
+  for (var necesKey in saveNecess) {
+      localStorage.setItem(saveNecess[necesKey][0], JSON.stringify(saveNecess[necesKey][1]));
+  }
+  for (var savekey in orbList) {
+    localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
+  }
+}
+
+function load() {
+  return JSON.parse(localStorage.getItem(SAVE_KEY));
 }
 
 // ====MAIN UPDATE====================
@@ -858,6 +887,10 @@ function update() {
   document.getElementById("moreDamage").value = price;
   getPrice("moreSpeed");
   document.getElementById("moreSpeed").value = price;
+
+  drawLevelScore();
 }
 
 setInterval(update, 20);
+window.onload = setInterval(save(), 10000);
+window.onload = load();
