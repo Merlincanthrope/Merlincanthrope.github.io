@@ -830,7 +830,7 @@ preventHealthNegatives = function() {
 }
 
 // ====MAIN UPDATE====================
-update = function() {
+function update() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   newPos(orb);
   drawOrb(orb);
@@ -861,4 +861,4 @@ update = function() {
   document.getElementById("moreSpeed").value = price;
 }
 
-setInterval(update, 10);
+setInterval(update, 20);
