@@ -28,9 +28,6 @@ var numNewOrbs = 0;
 var bricksBroken = 0;
 var bricksLeft = brickColumns * brickRows;
 
-// Save Data Variables
-var SAVE_KEY = "save";
-
 // Arrays
 var orbList = [];
 var brickList = [];
@@ -56,6 +53,7 @@ var levelFormats = [
   // "diamond"
 ];
 var currentLevel = levelFormats[randomLevel];
+var numLevelsBeaten = 1;
 var full = levelFormats[0];
 var upperhalf = levelFormats[1];
 var doublecolumn = levelFormats[2];
@@ -621,6 +619,7 @@ function purchaseMoreSpeed() {
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
 function levelUp(rnglevel) {
   brickHealth++;
+  numLevelsBeaten++;
 
   if (rnglevel == full) {
     //Draw all bricks (FULL LEVEL)
@@ -639,7 +638,6 @@ function levelUp(rnglevel) {
     drawBrick(rnglevel);
     testBrickCollision(orb);
     displayBrickHealth();
-    getMoney()
     level++;
     bricksLeft = brickColumns * brickRows;
     orb.x = orbStartingX;
@@ -701,6 +699,13 @@ function levelUp(rnglevel) {
   }
 }
 
+function drawLevelScore() {
+  ctx.save();
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Level " + (numLevelsBeaten + 1), WIDTH - 20, HEIGHT - 4);
+  ctx.restore();
+}
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
 function getTotalBrickHealth(level) {
@@ -833,8 +838,19 @@ function preventHealthNegatives() {
 }
 
 // ----SAVE DATA FUNCTIONS
-function save(state) {
-  localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+var saveNecess = [
+  ["orb", orb],
+  ["numLevelsBeaten", numLevelsBeaten],
+  ["money", money],
+];
+
+function save() {
+  for (var necesKey in saveNecess) {
+      localStorage.setItem(saveNecess[necesKey][0], JSON.stringify(saveNecess[necesKey][1]));
+  }
+  for (var savekey in orbList) {
+    localStorage.setItem(orbList[savekey].name, JSON.stringify(orbList[savekey]));
+  }
 }
 
 function load() {
@@ -871,6 +887,10 @@ function update() {
   document.getElementById("moreDamage").value = price;
   getPrice("moreSpeed");
   document.getElementById("moreSpeed").value = price;
+
+  drawLevelScore();
 }
 
 setInterval(update, 20);
+window.onload = setInterval(save(), 10000);
+window.onload = load();
