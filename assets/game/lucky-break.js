@@ -702,6 +702,13 @@ function levelUp(rnglevel) {
   }
 }
 
+function drawLevelScore() {
+  ctx.save();
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Level " + numLevelsBeaten, WIDTH - 120, HEIGHT - 20);
+  ctx.restore();
+}
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
 function getTotalBrickHealth(level) {
