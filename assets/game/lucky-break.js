@@ -33,6 +33,11 @@ var bricksLeft = brickColumns * brickRows;
 
 // Save Data Variables
 var SAVE_KEY = "save";
+var saveNecess = [
+  ["orb", orb],
+  ["numLevelsBeaten", numLevelsBeaten],
+  ["money", money],
+];
 
 // Arrays
 var orbList = [];
@@ -89,8 +94,8 @@ orb = {
   x: orbStartingX,
   y: orbStartingY,
   radius: 12,
-  spdX: 4,
-  spdY: 3,
+  spdX: 3,
+  spdY: 2,
   color: "yellow",
   stroke: "orange",
   damage: 1,
@@ -890,12 +895,7 @@ function preventHealthNegatives() {
   }
 }
 
-// ----SAVE DATA FUNCTIONS
-var saveNecess = [
-  ["orb", orb],
-  ["numLevelsBeaten", numLevelsBeaten],
-  ["money", money],
-];
+// ----SAVE DATA FUNCTIONS------------------
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
