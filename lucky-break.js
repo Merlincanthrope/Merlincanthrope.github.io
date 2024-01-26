@@ -861,4 +861,4 @@ function update() {
   document.getElementById("moreSpeed").value = price;
 }
 
-setInterval(update, 10);
+setInterval(update, 20);
