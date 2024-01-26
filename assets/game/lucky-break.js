@@ -709,7 +709,7 @@ function drawLevelScore() {
   ctx.save();
   ctx.font = "16px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("Level " + numLevelsBeaten, WIDTH - 120, HEIGHT - 20);
+  ctx.fillText("Level " + numLevelsBeaten, WIDTH - 60, HEIGHT - 10);
   ctx.restore();
 }
 
@@ -873,7 +873,7 @@ function save() {
   ctx.restore();
 
   sleep(2000);
-  
+
   ctx.clearRect(0, HEIGHT - 30, 150, HEIGHT);
 }
 
