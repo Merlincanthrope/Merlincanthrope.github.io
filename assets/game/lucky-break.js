@@ -28,6 +28,9 @@ var numNewOrbs = 0;
 var bricksBroken = 0;
 var bricksLeft = brickColumns * brickRows;
 
+// Save Data Variables
+var SAVE_KEY = "save";
+
 // Arrays
 var orbList = [];
 var brickList = [];
@@ -699,13 +702,6 @@ function levelUp(rnglevel) {
   }
 }
 
-function drawLevelScore() {
-  ctx.save();
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText("Level " + (numLevelsBeaten + 1), WIDTH - 20, HEIGHT - 4);
-  ctx.restore();
-}
 
 // =|=|=|=|=|=| FUNCTION REQUIRES LEVEL UPDATE |=|=|=|=|=
 function getTotalBrickHealth(level) {
@@ -854,7 +850,9 @@ function save() {
 }
 
 function load() {
-  return JSON.parse(localStorage.getItem(SAVE_KEY));
+  for (var loadkey in saveNecess) {
+    return JSON.parse(localStorage.getItem(saveNecess[loadkey][0]));
+  }
 }
 
 // ====MAIN UPDATE====================
