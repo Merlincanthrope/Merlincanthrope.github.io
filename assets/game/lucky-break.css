@@ -50,6 +50,23 @@ canvas {
   background-color: white;
 }
 
+#moreOrbs {
+  border-color: orange;
+  color: yellow;
+  width: 75px;
+  height: 22px;
+  transition:
+    width 0.5s,
+    height 0.5s,
+    transform 0.5s;
+}
+
+#moreOrbs:hover {
+  transform: translate(-2.5px, -1.5px);
+  width: 80px;
+  height: 25px;
+}
+
 #moreDamageColumn {
   border-bottom: 2px solid black;
   border-top: 2px solid black;
@@ -58,11 +75,45 @@ canvas {
   background-color: white;
 }
 
+#moreDamage {
+  border-color: red;
+  color: orangered;
+  width: 75px;
+  height: 22px;
+  transition:
+    width 0.5s,
+    height 0.5s,
+    transform 0.5s;
+}
+
+#moreDamage:hover {
+  transform: translate(-2.5px, -1.5px);
+  width: 80px;
+  height: 25px;
+}
+
 #moreSpeedColumn {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
   border-top: 2px solid black;
   background-color: white;
+}
+
+#moreSpeed {
+  border-color: green;
+  color: greenyellow;
+  width: 75px;
+  height: 22px;
+  transition:
+    width 0.5s,
+    height 0.5s,
+    transform 0.5s;
+}
+
+#moreSpeed:hover {
+  transform: translate(-2.5px, -1.5px);
+  width: 80px;
+  height: 25px;
 }
 
 .upgrade {
